@@ -1,0 +1,13 @@
+.inputSearch {
+    font-size: 1rem !important;
+}
+
+.formSearch {
+    width: 300px;
+    border-radius: 300px;
+    margin-left: 10px;
+}
+
+.cardHeader {
+    padding: 10px 20px !important;
+}
