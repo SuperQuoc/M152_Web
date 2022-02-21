@@ -23,8 +23,14 @@
 .cfpt_banner {
     max-width: 80%;
     border-radius: 10px;
+    z-index: 999;
 }
 
+.profile {
+    margin-top: -30px;
+    background-color: white;
+    z-index: 1;
+}
 
 
 header {
