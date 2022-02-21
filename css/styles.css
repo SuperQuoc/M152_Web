@@ -9,9 +9,13 @@
 }
 
 .cardHeader {
-    padding: 10px 20px !important;
+    padding: 0px 20px !important;
 }
 
 .navItem {
     padding: 0px 75px 0px;
+}
+
+header {
+    
 }
