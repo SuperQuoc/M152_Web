@@ -12,9 +12,19 @@
     padding: 0px 0px !important;
 }
 
+.navbar {
+    padding: 0px 20px !important;
+}
+
 .navItem {
     padding: 0px 75px 0px;
 }
+
+.cfpt_banner {
+    max-width: 80%;
+}
+
+
 
 header {
     
