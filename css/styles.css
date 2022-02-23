@@ -37,6 +37,14 @@
     top: 2em;
 }
 
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+    padding: 0 30px;
+}
+
+.uk-modal {
+    background: rgba(0,0,0,.05);
+}
+
 header {
     
 }

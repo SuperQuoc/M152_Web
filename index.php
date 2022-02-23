@@ -35,7 +35,7 @@
                             <li class="uk-active">
                                 <a href="index.php" uk-icon="home"></a>
                             </li>
-                            <li class="navItem">
+                            <li class="">
                                 <a href="post.php" uk-icon="comment"></a>
                             </li>
                         </ul>
