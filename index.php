@@ -59,9 +59,17 @@
             <img src="images/CFPT_Banner.jpg" alt="" class=" cfpt_banner" uk-cover>
         </div>
 
-        <img class="uk-border-circle profile" src="images/CFPT Profile.png" width="132" height="132" alt="">
+        <div class="uk-container">
 
-        
+            <img class="uk-border-circle profile" src="images/CFPT Profile.png" width="132" height="132" alt="">
+
+            <span class="uk-text-bolder uk-text-left uk-text-middle uk-text-large uk-text-emphasis">Centre de Formation Professionnelle et Technique d'Informatique</span>
+
+            <button class="uk-button uk-button-primary uk-float-right contact-button">Nous contacter</button>
+
+
+        </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"

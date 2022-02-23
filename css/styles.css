@@ -32,6 +32,10 @@
     margin-left: 20px;
 }
 
+.contact-button {
+    position: relative;
+    top: 2em;
+}
 
 header {
     
