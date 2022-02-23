@@ -76,6 +76,7 @@
                         </div>
                     </div>
                     <div class="uk-card-body">
+                        
                         <form action="upload.php" method="POST" enctype='multipart/form-data'>
                             <fieldset class="uk-fieldset">
 

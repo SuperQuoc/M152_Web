@@ -7,6 +7,6 @@
  */
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'journeeSportive');
-define('DB_USER', 'journeeSportive_adm');
-define('DB_PASS', 'Super');
+define('DB_NAME', 'M152db');
+define('DB_USER', 'M152db_adm');
+define('DB_PASS', '1213Onex!');
