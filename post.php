@@ -65,9 +65,28 @@
             <div id="post-modal-center" class="uk-flex-top" uk-modal>
                 <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-box-shadow-medium">
 
+
+                    <h3 class="uk-text-large uk-text-emphasis">Créer une publication</h3>
                     <button class="uk-modal-close-default uk-close-large" type="button" uk-close></button>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                    <form action="/post.php">
+                        <fieldset class="uk-fieldset">
+
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?"></textarea>
+                            </div>
+
+                            <div class="uk-margin">
+                                <div uk-form-custom>
+                                    <input type="file" multiple>
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
+                                    
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
 
                 </div>
             </div>
@@ -75,6 +94,8 @@
         </div>
 
     </div>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
