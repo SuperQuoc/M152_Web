@@ -76,16 +76,16 @@
                         </div>
                     </div>
                     <div class="uk-card-body">
-                        <form action="/post.php">
+                        <form action="/upload.php">
                             <fieldset class="uk-fieldset">
 
                                 <div class="uk-margin">
-                                    <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?"></textarea>
+                                    <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?" name="comment" ></textarea>
                                 </div>
 
                                 <div class="uk-margin">
                                     <div uk-form-custom>
-                                        <input type="file" multiple>
+                                        <input type="file" multiple name="medias_uploads[]" accept=".jpg, .jpeg, .png">
                                         <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
 
                                     </div>
