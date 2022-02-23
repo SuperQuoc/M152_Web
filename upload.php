@@ -43,10 +43,12 @@ for ($i = 0; $i < $file_count; $i++) {
 
     if ($filesize > MAX_SIZE) {
         // construct an error message
-        $message = sprintf("The file %s is %s which is greater than the allowed size %s",
+        $message = sprintf(
+            "The file %s is %s which is greater than the allowed size %s",
             $filename,
             format_filesize($filesize),
-            format_filesize(MAX_SIZE));
+            format_filesize(MAX_SIZE)
+        );
 
         $errors[$filesize] = $message;
         continue;
@@ -59,11 +61,11 @@ for ($i = 0; $i < $file_count; $i++) {
 }
 
 if ($errors) {
-    redirect_with_message(format_messages('The following errors occurred:',$errors), FLASH_ERROR);
+    redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR);
 }
 
 // move the files
-for($i = 0; $i < $file_count; $i++) {
+for ($i = 0; $i < $file_count; $i++) {
     $filename = $files['name'][$i];
     $tmp = $files['tmp_name'][$i];
     $mime_type = get_mime_type($tmp);
@@ -75,11 +77,12 @@ for($i = 0; $i < $file_count; $i++) {
 
     // move the file to the upload dir
     $success = move_uploaded_file($tmp, $filepath);
-    if(!$success) {
+    if (!$success) {
         $errors[$filename] = "The file $filename was failed to move.";
     }
 }
 
 $errors ?
-    redirect_with_message(format_messages('The following errors occurred:',$errors), FLASH_ERROR) :
+    redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR) :
     redirect_with_message('All the files were uploaded successfully.', FLASH_SUCCESS);
+
