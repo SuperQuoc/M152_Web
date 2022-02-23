@@ -90,7 +90,7 @@
 
                                     </div>
                                 </div>
-
+                                <input class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" value="Publier">
                             </fieldset>
                         </form>
                     </div>
