@@ -80,12 +80,12 @@
                             <fieldset class="uk-fieldset">
 
                                 <div class="uk-margin">
-                                    <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?" name="comment" ></textarea>
+                                    <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?" name="comment"></textarea>
                                 </div>
 
                                 <div class="uk-margin">
                                     <div uk-form-custom>
-                                        <input type="file" multiple name="medias_uploads[]" accept=".jpg, .jpeg, .png">
+                                        <input type="file" multiple name="medias_uploads[]" accept="image/*">
                                         <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
 
                                     </div>
