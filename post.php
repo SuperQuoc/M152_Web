@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="uk-card-body">
-                        <form action="/upload.php">
+                        <form action="upload.php" method="POST">
                             <fieldset class="uk-fieldset">
 
                                 <div class="uk-margin">
@@ -90,7 +90,7 @@
 
                                     </div>
                                 </div>
-                                <input class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" value="Publier">
+                                <input class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" value="Publier" name="publier">
                             </fieldset>
                         </form>
                     </div>
