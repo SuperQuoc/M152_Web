@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once __DIR__ . '/inc/flash.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,6 +14,7 @@
 </head>
 
 <body>
+    <?php flash('upload') ?>
     <header>
         <div class="uk-card uk-card-body uk-box-shadow-small cardHeader" style="z-index: 980;">
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;">
