@@ -63,30 +63,37 @@
             <button class="uk-button uk-button-primary uk-float-right contact-button" uk-toggle="target: #post-modal-center">Publier</button>
 
             <div id="post-modal-center" class="uk-flex-top" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-box-shadow-medium">
-
-
-                    <h3 class="uk-text-large uk-text-emphasis">Créer une publication</h3>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-card uk-card-default uk-width-1-2@m">
                     <button class="uk-modal-close-default uk-close-large" type="button" uk-close></button>
-
-
-                    <form action="/post.php">
-                        <fieldset class="uk-fieldset">
-
-                            <div class="uk-margin">
-                                <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?"></textarea>
+                    <div class="uk-card-header">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
                             </div>
+                            <div class="uk-width-expand">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">Créer une publication</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-card-body">
+                        <form action="/post.php">
+                            <fieldset class="uk-fieldset">
 
-                            <div class="uk-margin">
-                                <div uk-form-custom>
-                                    <input type="file" multiple>
-                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
-                                    
+                                <div class="uk-margin">
+                                    <textarea class="uk-textarea" rows="3" placeholder="Que voulez-vous dire ?"></textarea>
                                 </div>
-                            </div>
 
-                        </fieldset>
-                    </form>
+                                <div class="uk-margin">
+                                    <div uk-form-custom>
+                                        <input type="file" multiple>
+                                        <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
+
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
 
                 </div>
             </div>
