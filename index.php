@@ -33,10 +33,10 @@
 
                         <ul class="uk-navbar-nav">
                             <li class="uk-active">
-                                <a href="index.html" uk-icon="home"></a>
+                                <a href="index.php" uk-icon="home"></a>
                             </li>
                             <li class="navItem">
-                                <a href="post.html" uk-icon="comment"></a>
+                                <a href="post.php" uk-icon="comment"></a>
                             </li>
                         </ul>
 
