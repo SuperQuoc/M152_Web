@@ -10,7 +10,7 @@ const ALLOWED_FILES = [
     'image/jpeg' => 'jpg'
 ];
 
-const MAX_SIZE = 5 * 1024 * 1024; //  5MB
+const MAX_SIZE = 3 * 1024 * 1024; //  3MB
 
 const UPLOAD_DIR = __DIR__ . '/uploads';
 
