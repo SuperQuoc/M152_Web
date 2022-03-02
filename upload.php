@@ -2,6 +2,7 @@
 
 session_start();
 
+include 'php/models/medias.php';
 require_once __DIR__ . '/inc/flash.php';
 require_once __DIR__ . '/inc/functions.php';
 
@@ -13,6 +14,8 @@ const ALLOWED_FILES = [
 const MAX_SIZE = 3 * 1024 * 1024; //  3MB
 
 const UPLOAD_DIR = __DIR__ . '/uploads';
+
+$comment = filter_input(INPUT_POST, 'comment');
 
 
 $is_post_request = strtolower($_SERVER['REQUEST_METHOD']) === 'post';
@@ -63,7 +66,8 @@ for ($i = 0; $i < $file_count; $i++) {
 if ($errors) {
     redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR);
 }
-
+// Add comment to the table POST
+postInsert($comment);
 // move the files
 for ($i = 0; $i < $file_count; $i++) {
     $filename = $files['name'][$i];
@@ -77,12 +81,14 @@ for ($i = 0; $i < $file_count; $i++) {
 
     // move the file to the upload dir
     $success = move_uploaded_file($tmp, $filepath);
+    // Add info to database (table Media)
+    mediaInsert($mime_type, $filename);
     if (!$success) {
         $errors[$filename] = "The file $filename was failed to move.";
     }
 }
 
+
 $errors ?
     redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR) :
     redirect_with_message('All the files were uploaded successfully.', FLASH_SUCCESS);
-
