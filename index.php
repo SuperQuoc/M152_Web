@@ -78,36 +78,39 @@ $mediaList = mediaSelectAll();
 
             <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
 
-                <?php if(isset($mediaList)) {?>
-                <?php foreach ($mediaList as $media) { ?>
+                <?php if (isset($mediaList)) { ?>
+                    <?php foreach ($mediaList as $media) { ?>
 
-                    <div>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-auto">
-                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-card-badge"><a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
+                                        <a href="#" class="uk-icon-link" uk-icon="trash"></a>
+                                    </div>
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">Id Post : <?= $media['idPost'] ?></h3>
+                                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="<?= $media['creationDate'] ?>"><?= $media['creationDate'] ?></time></p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Id Post : <?= $media['idPost'] ?></h3>
-                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="<?= $media['creationDate'] ?>"><?= $media['creationDate'] ?></time></p>
+                                <div class="uk-card-body">
+                                    <div class="uk-card-media-bottom">
+                                        <img src="uploads/<?= strtolower($media['nomMedia']) ?>" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="uk-card-footer">
+                                    <p><?= $media['commentaire'] ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-card-body">
-                            <div class="uk-card-media-bottom">
-                                <img src="uploads/<?= strtolower($media['nomMedia']) ?>" alt="">
-                            </div>
 
-                        </div>
-                        <div class="uk-card-footer">
-                            <p><?= $media['commentaire'] ?></p>
-                        </div>
-                    </div>
-                </div>
-
+                    <?php } ?>
                 <?php } ?>
-                <?php }?>
             </div>
 
         </div>
