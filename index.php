@@ -1,3 +1,7 @@
+<?php
+session_start();
+include 'php/models/database.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,20 +16,15 @@
 <body>
     <header>
         <div class="uk-card uk-card-body uk-box-shadow-small cardHeader" style="z-index: 980;">
-            <div
-                uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;">
-                <nav class="uk-navbar-container uk-navbar-transparent navbar" uk-navbar="dropbar: false;"
-                    style="height: 60px; background: white;">
+            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;">
+                <nav class="uk-navbar-container uk-navbar-transparent navbar" uk-navbar="dropbar: false;" style="height: 60px; background: white;">
                     <div class="uk-navbar-left">
 
-                        <a class="uk-logo" href="#"><img class="uk-border-circle"
-                                data-src="https://www.facebook.com/images/fb_icon_325x325.png" width="32" height="32"
-                                alt="" uk-img></a>
+                        <a class="uk-logo" href="#"><img class="uk-border-circle" data-src="https://www.facebook.com/images/fb_icon_325x325.png" width="32" height="32" alt="" uk-img></a>
 
                         <form class="uk-search uk-search-navbar uk-background-muted formSearch">
                             <span uk-search-icon></span>
-                            <input class="uk-search-input uk-background-muted inputSearch" type="search"
-                                placeholder="Rechercher sur Facebook">
+                            <input class="uk-search-input uk-background-muted inputSearch" type="search" placeholder="Rechercher sur Facebook">
                         </form>
 
                     </div>
@@ -67,17 +66,87 @@
 
             <button class="uk-button uk-button-primary uk-float-right contact-button">Nous contacter</button>
 
+        </div>
+
+        <hr>
+
+        <div class="uk-container">
+
+            <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
+                <!-- Card example -->
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
+                                </div>
+                                <div class="uk-width-expand">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card example -->
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
+                                </div>
+                                <div class="uk-width-expand">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
+                                </div>
+                                <div class="uk-width-expand">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
+
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"
-        integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js"
-        integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw=="
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
 </body>
 
 </html>

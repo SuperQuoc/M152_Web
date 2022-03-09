@@ -53,6 +53,7 @@ require_once __DIR__ . '/inc/flash.php';
             </div>
         </div>
     </header>
+
     <div class="uk-container">
 
         <div class="uk-cover-container uk-height-large">
@@ -105,6 +106,8 @@ require_once __DIR__ . '/inc/flash.php';
             </div>
 
         </div>
+
+        <hr>
 
     </div>
 
