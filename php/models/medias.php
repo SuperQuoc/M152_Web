@@ -28,6 +28,38 @@ function postInsert($commentaire) {
 }
 
 /**
+ * Select a list of MEDIAS in the database
+ */
+function mediaSelectAll() {
+    $sql   = "SELECT MEDIA.idMedia, MEDIA.nomMedia, MEDIA.idPost, MEDIA.creationDate, POST.commentaire
+                FROM M152db.MEDIA
+                JOIN M152db.POST ON MEDIA.idPost = POST.idPost";
+
+    return dbRun($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+
+
+
+
+
+
+function bookSelectAll($search = '', $orderBy='', $offset = 0, $limit = PHP_INT_MAX) {
+    $sql   = "SELECT books.id, author, title, publicationYear, idGenre,  genres.genre
+                FROM books
+                JOIN genres ON books.idGenre = genres.id
+               WHERE author LIKE ? OR title  LIKE ? OR publicationYear LIKE ?
+               $orderBy
+               LIMIT ? OFFSET ?";
+
+    return dbRun($sql,
+        ["%$search%", "%$search%", "%$search%", $limit, $offset])->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+/**
  * Update the book's data
  */
 function bookUpdate($id, $author, $title, $publicationYear, $idGenre) {

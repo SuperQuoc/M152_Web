@@ -80,14 +80,14 @@ try {
         $mime_type = get_mime_type($tmp);
 
         // set the filename as the basename + extension
-        $uploaded_file = pathinfo($filename, PATHINFO_FILENAME) . '.' . ALLOWED_FILES[$mime_type];
+        $uploaded_file = pathinfo(strtolower($filename), PATHINFO_FILENAME) . '.' . ALLOWED_FILES[$mime_type];
         // new filepath
         $filepath = UPLOAD_DIR . '/' . $uploaded_file;
 
         // move the file to the upload dir
         $success = move_uploaded_file($tmp, $filepath);
         // Add info to database (table Media)
-        mediaInsert($mime_type, $filename);
+        mediaInsert($mime_type, strtolower($filename));
 
         if (!$success) {
             $errors[$filename] = "The file $filename was failed to move.";

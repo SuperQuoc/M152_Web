@@ -1,6 +1,10 @@
 <?php
 session_start();
-include 'php/models/database.php';
+
+require_once 'php/models/medias.php';
+
+$mediaList = mediaSelectAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -73,8 +77,11 @@ include 'php/models/database.php';
         <div class="uk-container">
 
             <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
-                <!-- Card example -->
-                <div>
+
+                <?php if(isset($mediaList)) {?>
+                <?php foreach ($mediaList as $media) { ?>
+
+                    <div>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -82,62 +89,25 @@ include 'php/models/database.php';
                                     <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
                                 </div>
                                 <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Id Post : <?= $media['idPost'] ?></h3>
+                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="<?= $media['creationDate'] ?>"><?= $media['creationDate'] ?></time></p>
                                 </div>
                             </div>
                         </div>
                         <div class="uk-card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                        </div>
-                        <div class="uk-card-footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card example -->
-                <div>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-auto">
-                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
-                                </div>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                                </div>
+                            <div class="uk-card-media-bottom">
+                                <img src="uploads/<?= strtolower($media['nomMedia']) ?>" alt="">
                             </div>
-                        </div>
-                        <div class="uk-card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+
                         </div>
                         <div class="uk-card-footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                            <p><?= $media['commentaire'] ?></p>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-auto">
-                                    <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
-                                </div>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                        </div>
-                        <div class="uk-card-footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
-                        </div>
-                    </div>
-                </div>
+
+                <?php } ?>
+                <?php }?>
             </div>
 
         </div>
