@@ -92,7 +92,7 @@ require_once __DIR__ . '/inc/flash.php';
 
                                 <div class="uk-margin">
                                     <div uk-form-custom>
-                                        <input type="file" multiple name="medias_uploads[]" id="medias_uploads" accept="image/*">
+                                        <input type="file" multiple name="medias_uploads[]" id="medias_uploads" accept="image/*,video/*,audio/*">
                                         <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
 
                                     </div>

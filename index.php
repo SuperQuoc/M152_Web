@@ -3,6 +3,7 @@ session_start();
 
 require_once 'php/models/medias.php';
 
+$postList = postSelectAll();
 $mediaList = mediaSelectAll();
 
 ?>
@@ -78,8 +79,9 @@ $mediaList = mediaSelectAll();
 
             <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
 
-                <?php if (isset($mediaList)) { ?>
-                    <?php foreach ($mediaList as $media) { ?>
+                <?php if (isset($postList)) { ?>
+
+                    <?php foreach ($postList as $post) { ?>
 
                         <div>
                             <div class="uk-card uk-card-default">
@@ -92,25 +94,52 @@ $mediaList = mediaSelectAll();
                                             <img class="uk-border-circle" width="40" height="40" src="images/CFPT Profile.png">
                                         </div>
                                         <div class="uk-width-expand">
-                                            <h3 class="uk-card-title uk-margin-remove-bottom">Id Post : <?= $media['idPost'] ?></h3>
-                                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="<?= $media['creationDate'] ?>"><?= $media['creationDate'] ?></time></p>
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">Id Post : <?= $post['idPost'] ?></h3>
+                                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="<?= $post['creationDate'] ?>"><?= $post['creationDate'] ?></time></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="uk-card-body">
                                     <div class="uk-card-media-bottom">
-                                        <img src="uploads/<?= strtolower($media['nomMedia']) ?>" alt="">
+                                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                                            <ul class="uk-slideshow-items">
+                                                <?php foreach ($mediaList as $media) {
+                                                    if ($media['idPost'] == $post['idPost']) {
+
+                                                ?>
+
+                                                        <li>
+                                                            <?php if (strpos($media['typeMedia'], "image") !== false) { ?>
+                                                                <img src="uploads/<?= $media['nomMedia'] ?>" alt="" uk-cover>
+                                                            <?php } else if (strpos($media['typeMedia'], "video") !== false) { ?>
+                                                                <video src="uploads/<?= $media['nomMedia'] ?>" loop muted playsinline uk-video="autoplay: inview"></video>
+                                                            <?php } else if (strpos($media['typeMedia'], "audio") !== false) { ?>
+                                                                <audio src="uploads/<?= $media['nomMedia'] ?>"></audio>
+                                                            <?php } ?>
+                                                        </li>
+
+                                                    <?php } ?>
+                                                <?php } ?>
+                                            </ul>
+
+                                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+                                        </div>
                                     </div>
 
                                 </div>
                                 <div class="uk-card-footer">
-                                    <p><?= $media['commentaire'] ?></p>
+                                    <p><?= $post['commentaire'] ?></p>
                                 </div>
                             </div>
                         </div>
 
                     <?php } ?>
+
                 <?php } ?>
+
             </div>
 
         </div>

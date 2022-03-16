@@ -8,7 +8,9 @@ require_once __DIR__ . '/inc/functions.php';
 
 const ALLOWED_FILES = [
     'image/png' => 'png',
-    'image/jpeg' => 'jpg'
+    'image/jpeg' => 'jpg',
+    'video/mp4' => 'mp4',
+    'audio/mp4' => 'mp3'
 ];
 
 const MAX_SIZE = 3 * 1024 * 1024; //  3MB
