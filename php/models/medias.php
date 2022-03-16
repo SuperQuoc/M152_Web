@@ -31,7 +31,7 @@ function postInsert($commentaire) {
  * Select a list of MEDIAS in the database
  */
 function mediaSelectAll() {
-    $sql   = "SELECT MEDIA.idMedia, MEDIA.nomMedia, MEDIA.idPost, MEDIA.creationDate, POST.commentaire
+    $sql   = "SELECT MEDIA.idMedia, MEDIA.nomMedia, MEDIA.idPost, POST.creationDate, POST.commentaire
                 FROM M152db.MEDIA
                 JOIN M152db.POST ON MEDIA.idPost = POST.idPost";
 
