@@ -87,7 +87,7 @@ $mediaList = mediaSelectAll();
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
                                     <div class="uk-card-badge"><a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
-                                        <a href="#" class="uk-icon-link" uk-icon="trash"></a>
+                                        <a href="#modal-delete-id<?= $post['idPost'] ?>" class="uk-icon-link" uk-toggle uk-icon="trash"></a>
                                     </div>
                                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                                         <div class="uk-width-auto">
@@ -134,6 +134,22 @@ $mediaList = mediaSelectAll();
                                     <p><?= $post['commentaire'] ?></p>
                                 </div>
                             </div>
+
+                            <div id="modal-delete-id<?= $post['idPost'] ?>" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <h2 class="uk-modal-title">êtes vous sur ?</h2>
+                                    <p>Voulez vous réelement supprimer ce poste ?</p>
+                                    <p class="uk-text-right">
+
+                                    <form action="delete.php" method="post">
+                                        <input type="hidden" id="idPost" name="idPost" value="<?= $post['idPost'] ?>">
+                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
+                                        <input class="uk-button uk-button-primary" type="submit" value="Confirmer" name="delete">
+                                    </form>
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
 
                     <?php } ?>

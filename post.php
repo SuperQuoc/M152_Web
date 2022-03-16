@@ -100,6 +100,7 @@ require_once __DIR__ . '/inc/flash.php';
                                 <input class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" value="Publier" name="submit">
                             </fieldset>
                         </form>
+                        
                     </div>
 
                 </div>
