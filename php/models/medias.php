@@ -62,10 +62,6 @@ function mediaDeleteById($id) {
 
 
 
-
-
-
-
 function bookSelectAll($search = '', $orderBy='', $offset = 0, $limit = PHP_INT_MAX) {
     $sql   = "SELECT books.id, author, title, publicationYear, idGenre,  genres.genre
                 FROM books

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once __DIR__ . '/inc/flash.php';
 require_once 'php/models/medias.php';
 
 $postList = postSelectAll();
@@ -19,6 +19,7 @@ $mediaList = mediaSelectAll();
 </head>
 
 <body>
+    <?php flash('edit') ?>
     <header>
         <div class="uk-card uk-card-body uk-box-shadow-small cardHeader" style="z-index: 980;">
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;">
@@ -86,8 +87,9 @@ $mediaList = mediaSelectAll();
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
-                                    <div class="uk-card-badge"><a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
-                                        <a href="#modal-delete-id<?= $post['idPost']?>" class="uk-icon-link" uk-toggle uk-icon="trash"></a>
+                                    <div class="uk-card-badge">
+                                        <a href="#modal-edit-id<?= $post['idPost'] ?>" class="uk-icon-link uk-margin-small-right" uk-toggle uk-icon="file-edit"></a>
+                                        <a href="#modal-delete-id<?= $post['idPost'] ?>" class="uk-icon-link" uk-toggle uk-icon="trash"></a>
                                     </div>
                                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                                         <div class="uk-width-auto">
@@ -113,7 +115,7 @@ $mediaList = mediaSelectAll();
                                                             <?php } else if (strpos($media['typeMedia'], "video") !== false) { ?>
                                                                 <video src="uploads/<?= $media['nomMedia'] ?>" loop muted playsinline uk-video="autoplay: inview"></video>
                                                             <?php } else if (strpos($media['typeMedia'], "audio") !== false) { ?>
-                                                                <audio src="uploads/<?= $media['nomMedia']?>" controls></audio>
+                                                                <audio src="uploads/<?= $media['nomMedia'] ?>" controls></audio>
                                                             <?php } ?>
                                                         </li>
 
@@ -133,7 +135,7 @@ $mediaList = mediaSelectAll();
                                 </div>
                             </div>
 
-                            <div id="modal-delete-id<?=$post['idPost']?>" uk-modal>
+                            <div id="modal-delete-id<?= $post['idPost'] ?>" uk-modal>
                                 <div class="uk-modal-dialog uk-modal-body">
                                     <h2 class="uk-modal-title">êtes vous sur ?</h2>
                                     <p>Voulez vous réelement supprimer ce poste ?</p>
@@ -143,6 +145,35 @@ $mediaList = mediaSelectAll();
                                         <input type="hidden" id="idPost" name="idPost" value="<?= $post['idPost'] ?>">
                                         <button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
                                         <input class="uk-button uk-button-primary" type="submit" value="Confirmer" name="delete">
+                                    </form>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="modal-edit-id<?= $post['idPost'] ?>" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <h2 class="uk-modal-title">Modification</h2>
+                                    <p>Voulez vous réelement modifier ce poste ?</p>
+                                    <p class="uk-text-right">
+
+                                    <form action="update.php" method="post">
+                                        <fieldset class="uk-fieldset">
+
+                                            <div class="uk-margin">
+                                                <textarea class="uk-textarea" rows="3" placeholder="<?= $post['commentaire'] ?>" name="comment"></textarea>
+                                            </div>
+
+                                            <div class="uk-margin">
+                                                <div uk-form-custom>
+                                                    <input type="file" multiple name="medias_uploads[]" id="medias_uploads" accept="image/*,video/*,audio/*">
+                                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Ajouter des médias <span uk-icon="upload"></span></button>
+
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="idPost" name="idPost" value="<?= $post['idPost'] ?>">
+                                            <button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
+                                            <input class="uk-button uk-button-primary" type="submit" value="Modifier" name="update">
+                                        </fieldset>
                                     </form>
                                     </p>
                                 </div>

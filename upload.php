@@ -23,7 +23,7 @@ $is_post_request = strtolower($_SERVER['REQUEST_METHOD']) === 'post';
 $has_files = isset($_FILES['medias_uploads']);
 
 if (!$is_post_request || !$has_files) {
-    redirect_with_message('Invalid file upload operation', FLASH_ERROR);
+    redirect_with_message_post('Invalid file upload operation', FLASH_ERROR);
 }
 
 $files = $_FILES['medias_uploads'];
@@ -65,7 +65,7 @@ for ($i = 0; $i < $file_count; $i++) {
 }
 
 if ($errors) {
-    redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR);
+    redirect_with_message_post(format_messages('The following errors occurred:', $errors), FLASH_ERROR);
 }
 // Add comment to the table POST
 try {
@@ -103,5 +103,5 @@ try {
 
 
 $errors ?
-    redirect_with_message(format_messages('The following errors occurred:', $errors), FLASH_ERROR) :
-    redirect_with_message('All the files were uploaded successfully.', FLASH_SUCCESS);
+    redirect_with_message_post(format_messages('The following errors occurred:', $errors), FLASH_ERROR) :
+    redirect_with_message_post('All the files were uploaded successfully.', FLASH_SUCCESS);

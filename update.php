@@ -22,17 +22,17 @@ foreach ($fileFromPostId as $key => $value) {
 
 
 
-// Delete data in the DB and file uploads
+// Update data in the DB and file uploads
 try {
     db()->beginTransaction();
 
-    // Delete files from uplodas by name from the DB (by post id)
+    // Update files from uplodas by name from the DB (by post id)
     foreach ($filenamesById as $filename) {
         $filepath = UPLOAD_DIR . '/' . $filename;
         unlink($filepath);
     }
 
-    // Delete post and media in the DB by Id
+    // Update post and media in the DB by Id
     mediaDeleteById($idPost);
     postDeleteById($idPost);
 
@@ -42,4 +42,4 @@ try {
     throw $e;
 }
 
-redirect_with_message_index('Le poste a été supprimé.', FLASH_SUCCESS);
+redirect_with_message_index('Le poste a été modifié.', FLASH_SUCCESS);
