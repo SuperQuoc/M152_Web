@@ -87,7 +87,7 @@ $mediaList = mediaSelectAll();
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
                                     <div class="uk-card-badge"><a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
-                                        <a href="#modal-delete-id<?= $post['idPost'] ?>" class="uk-icon-link" uk-toggle uk-icon="trash"></a>
+                                        <a href="#modal-delete-id<?= $post['idPost']?>" class="uk-icon-link" uk-toggle uk-icon="trash"></a>
                                     </div>
                                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                                         <div class="uk-width-auto">
@@ -106,16 +106,14 @@ $mediaList = mediaSelectAll();
                                             <ul class="uk-slideshow-items">
                                                 <?php foreach ($mediaList as $media) {
                                                     if ($media['idPost'] == $post['idPost']) {
-
                                                 ?>
-
                                                         <li>
                                                             <?php if (strpos($media['typeMedia'], "image") !== false) { ?>
                                                                 <img src="uploads/<?= $media['nomMedia'] ?>" alt="" uk-cover>
                                                             <?php } else if (strpos($media['typeMedia'], "video") !== false) { ?>
                                                                 <video src="uploads/<?= $media['nomMedia'] ?>" loop muted playsinline uk-video="autoplay: inview"></video>
                                                             <?php } else if (strpos($media['typeMedia'], "audio") !== false) { ?>
-                                                                <audio src="uploads/<?= $media['nomMedia'] ?>"></audio>
+                                                                <audio src="uploads/<?= $media['nomMedia']?>" controls></audio>
                                                             <?php } ?>
                                                         </li>
 
@@ -135,7 +133,7 @@ $mediaList = mediaSelectAll();
                                 </div>
                             </div>
 
-                            <div id="modal-delete-id<?= $post['idPost'] ?>" uk-modal>
+                            <div id="modal-delete-id<?=$post['idPost']?>" uk-modal>
                                 <div class="uk-modal-dialog uk-modal-body">
                                     <h2 class="uk-modal-title">êtes vous sur ?</h2>
                                     <p>Voulez vous réelement supprimer ce poste ?</p>

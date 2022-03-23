@@ -57,7 +57,7 @@ function format_filesize(int $bytes, int $decimals = 2): string
  * @param string $location
  * @return void
  */
-function redirect_with_message(string $message, string $type=FLASH_ERROR, string $name='upload', string $location='post.php'): void
+function redirect_with_message(string $message, string $type=FLASH_ERROR, string $name='upload', string $location='index.php'): void
 {
     flash($name, $message, $type);
     header("Location: $location", true, 303);

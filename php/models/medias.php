@@ -43,6 +43,21 @@ function postSelectAll() {
     return dbRun($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function mediaSelectAllByPostId($id) {
+    $param = [ ':id' => $id ];
+    $sql   = "SELECT nomMedia
+                FROM MEDIA
+               WHERE MEDIA.idPost = :id";
+    return dbRun($sql, $param)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function postDeleteById($id) {
+    dbRun( "DELETE FROM POST WHERE idPost = ?", [$id] );
+}
+
+function mediaDeleteById($id) {
+    dbRun( "DELETE FROM MEDIA WHERE idPost = ?", [$id] );
+}
 
 
 

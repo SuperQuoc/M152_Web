@@ -19,7 +19,6 @@ const UPLOAD_DIR = __DIR__ . '/uploads';
 
 $comment = filter_input(INPUT_POST, 'comment');
 
-
 $is_post_request = strtolower($_SERVER['REQUEST_METHOD']) === 'post';
 $has_files = isset($_FILES['medias_uploads']);
 
