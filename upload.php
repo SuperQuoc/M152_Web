@@ -86,24 +86,14 @@ try {
         // new filepath
         $filepath = UPLOAD_DIR . '/' . $uploaded_file;
 
+
         // move the file to the upload dir
+
+
+
         $success = move_uploaded_file($tmp, $filepath);
 
         //Resize part : https://stackoverflow.com/questions/24227323/how-to-resize-image-using-gd-library-php
-
-        if($sucess)
-        {
-            $uploadedImage = imagecreatefromjpeg($filepath);
-            if  (!$uploadedImage) {
-                throw new Exception('The uploaded file is corrupted (or wrong format)');
-            } else {
-                $resizedImage = PIPHP_ImageResize($uploadedImage,10,10);
-                // save your image on disk
-                if (!imagejpeg ($resizedImage, "new/filename/path")) {
-                      throw new Exception('failed to save resized image');
-                }
-            }
-        }
 
         // Add info to database (table Media)
         mediaInsert($mime_type, $filename);

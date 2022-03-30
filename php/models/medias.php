@@ -12,7 +12,7 @@ require_once 'php/models/database.php';
  */
 function mediaInsert($typeMedia, $nomMedia) {
     dbRun(
-        "INSERT INTO M152db.MEDIA (typeMedia, nomMedia, idPost) VALUES (?,  ?, (SELECT MAX(idPost) FROM POST ));",
+        "INSERT INTO facebook.MEDIA (typeMedia, nomMedia, idPost) VALUES (?,  ?, (SELECT MAX(idPost) FROM POST ));",
         [ $typeMedia, $nomMedia ]
     );
 }
@@ -22,7 +22,7 @@ function mediaInsert($typeMedia, $nomMedia) {
  */
 function postInsert($commentaire) {
     dbRun(
-        "INSERT INTO M152db.POST (commentaire) VALUES (?);",
+        "INSERT INTO facebook.POST (commentaire) VALUES (?);",
         [ $commentaire ]
     );
 }
@@ -32,14 +32,14 @@ function postInsert($commentaire) {
  */
 function mediaSelectAll() {
     $sql   = "SELECT *
-                FROM M152db.MEDIA ";
+                FROM facebook.MEDIA ";
 
     return dbRun($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function postSelectAll() {
     $sql = "SELECT *
-    FROM M152db.POST";
+    FROM facebook.POST";
     return dbRun($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -99,11 +99,10 @@ function checkBookData($book) {
     return $book['author'] && $book['title'] && $book['publicationYear'] && $book['idGenre'];
 }
 
-function PIPHP_ImageResize($image, $w, $h)
-{
-    $oldw = imagesx($image);
-    $oldh = imagesy($image);
-    $temp = imagecreatetruecolor($w, $h);
-    imagecopyresampled($temp, $image, 0, 0, 0, 0, $w, $h, $oldw, $oldh);
-    return $temp;
-}
+function image_resize($source,$width,$height) {
+    $new_width =150;
+    $new_height =150;
+    $thumbImg=imagecreatetruecolor($new_width,$new_height);
+    imagecopyresampled($thumbImg,$source,0,0,0,0,$new_width,$new_height,$width,$height);
+    return $thumbImg;
+   }
