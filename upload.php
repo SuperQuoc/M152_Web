@@ -89,8 +89,8 @@ try {
         // move the file to the upload dir
         $success = move_uploaded_file($tmp, $filepath);
 
-        //Resize part
-        
+        //Resize part : https://stackoverflow.com/questions/24227323/how-to-resize-image-using-gd-library-php
+
         if($sucess)
         {
             $uploadedImage = imagecreatefromjpeg($filepath);
