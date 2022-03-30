@@ -17,7 +17,7 @@ $fileFromPostId = mediaSelectAllByPostId($idPost);
 $filenamesById = array();
 
 foreach ($fileFromPostId as $key => $value) {
-    array_push($filenamesById, $value['nomMedia']);;
+    array_push($filenamesById, $value['nomMedia']);
 }
 
 
