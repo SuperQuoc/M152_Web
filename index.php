@@ -141,10 +141,10 @@ $mediaList = mediaSelectAll();
                                     <p>Voulez vous réelement supprimer ce poste ?</p>
                                     <p class="uk-text-right">
 
-                                    <form action="delete.php" method="post">
+                                    <form action="" method="post">
                                         <input type="hidden" id="idPost" name="idPost" value="<?= $post['idPost'] ?>">
                                         <button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
-                                        <input class="uk-button uk-button-primary" type="submit" value="Confirmer" name="delete">
+                                        <input id="deleteButton" data-idPost="<?= $post['idPost'] ?>" class="uk-button uk-button-primary" type="submit" value="Confirmer" name="delete">
                                     </form>
                                     </p>
                                 </div>
@@ -191,6 +191,43 @@ $mediaList = mediaSelectAll();
 
 
     </div>
+
+    <script>
+        window.onload = function(){
+
+        var httpRequest = new XMLHttpRequest();
+
+        function alertContents() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+
+                    alert("Votre poste a été supprimé.");
+
+                } else {
+                    alert('Un problème est survenu avec la requête.');
+                }
+            }
+        }
+
+        document.getElementById("deleteButton").onclick = function() {
+            var deleteButton = document.getElementById("deleteButton");
+
+            var idPost = this.dataset.idpost;
+            makeRequest('delete.php', idPost);
+        };
+
+        function makeRequest(url, idPost) {
+
+
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('POST', url);
+            httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            httpRequest.send('idPost=' + encodeURIComponent(idPost));
+        }
+
+
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>

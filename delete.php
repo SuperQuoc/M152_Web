@@ -36,10 +36,15 @@ try {
     mediaDeleteById($idPost);
     postDeleteById($idPost);
 
+    echo json_encode(array("statusCode"=>200));
+
     db()->commit();
 } catch (Exception $e) {
     db()->rollBack();
+
+    echo json_encode(array("statusCode"=>201));
+
     throw $e;
 }
 
-redirect_with_message_index('Le poste a été supprimé.', FLASH_SUCCESS);
+//redirect_with_message_index('Le poste a été supprimé.', FLASH_SUCCESS);
