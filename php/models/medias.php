@@ -98,3 +98,12 @@ function bookDeleteById($id) {
 function checkBookData($book) {
     return $book['author'] && $book['title'] && $book['publicationYear'] && $book['idGenre'];
 }
+
+function PIPHP_ImageResize($image, $w, $h)
+{
+    $oldw = imagesx($image);
+    $oldh = imagesy($image);
+    $temp = imagecreatetruecolor($w, $h);
+    imagecopyresampled($temp, $image, 0, 0, 0, 0, $w, $h, $oldw, $oldh);
+    return $temp;
+}
