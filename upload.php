@@ -62,6 +62,7 @@ for ($i = 0; $i < $file_count; $i++) {
     if (!in_array(get_mime_type($tmp), array_keys(ALLOWED_FILES))) {
         $errors[$filename] = "The file $filename is allowed to upload";
     }
+
 }
 
 if ($errors) {
@@ -87,6 +88,23 @@ try {
 
         // move the file to the upload dir
         $success = move_uploaded_file($tmp, $filepath);
+
+        //Resize part
+        
+        if($sucess)
+        {
+            $uploadedImage = imagecreatefromjpeg($filepath);
+            if  (!$uploadedImage) {
+                throw new Exception('The uploaded file is corrupted (or wrong format)');
+            } else {
+                $resizedImage = PIPHP_ImageResize($uploadedImage,10,10);
+                // save your image on disk
+                if (!imagejpeg ($resizedImage, "new/filename/path")) {
+                      throw new Exception('failed to save resized image');
+                }
+            }
+        }
+
         // Add info to database (table Media)
         mediaInsert($mime_type, $filename);
 
@@ -102,6 +120,12 @@ try {
 }
 
 
+
+
+
 $errors ?
     redirect_with_message_post(format_messages('The following errors occurred:', $errors), FLASH_ERROR) :
     redirect_with_message_post('All the files were uploaded successfully.', FLASH_SUCCESS);
+
+
+
